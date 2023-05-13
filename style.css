@@ -8,6 +8,7 @@ html, body {
 input {
     color: #432000;
     background-color: #DCE1EB;
+    margin: 10px 0;
 }
 
 button {
@@ -15,6 +16,24 @@ button {
     background-color: #AC485A;
 }
 
+input, button {
+    border: 0;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
 #shopping-cart {
-    width: 100px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    max-width: 320px;
+    /* border: 5px solid black;
+    border-radius: 10px; */
 }
