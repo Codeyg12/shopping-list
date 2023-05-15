@@ -14,6 +14,7 @@ input {
 button {
     color: #FDFDFD;
     background-color: #AC485A;
+    /* align-self: flex-end; */
 }
 
 input, button {
@@ -36,6 +37,78 @@ input, button {
     max-width: 320px;
 }
 
+/* #add-button {
+    position: relative;
+    animation: colorChange 3s linear infinite alternate;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #1551f4;
+        width: 50%;
+        background-color: #fa022f;
+    }
+
+    25% {
+        color: white;
+        background-color: #9fd239;
+    }
+
+    50% {
+        color: black;
+        width: 75%;
+        background-color: #2971b4;
+    }
+
+    75% { 
+        color: white;
+        background-color: #e851c7;
+    }
+
+    100% {
+        color: #fa022f;
+        width: 100%;
+        background-color: #1551f4;
+        align-self: flex-end;
+    }
+}
+
+ #add-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    animation: spinner 3s linear infinite;
+} 
+
+@keyframes spinner {
+    from {
+        background-color: red;
+    bottom: 0;
+    }
+    20% {
+        left: 20%;
+    }
+    40% {
+        left: 40%;
+        background-color: blue;
+    }
+    60% {
+        left: 60%;
+    }
+    80% {
+        left: 80%;
+    }
+
+    to {
+        background-color: blueviolet;
+        top: 0;
+        left: 100%;
+    }
+}
+
 #input-field:is(:focus) {
     background-color: black;
-}
+} */
