@@ -1,135 +1,67 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Rubik', sans-serif;
-    background-color: #EEF0F4;
-    user-select: none;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  background-color: #eef0f4;
+  user-select: none;
 }
 
 input {
-    color: #432000;
-    background-color: #DCE1EB;
-    margin: 10px 0;
+  color: #432000;
+  background-color: #dce1eb;
+  margin: 10px 0;
 }
 
 button {
-    color: #FDFDFD;
-    background-color: #AC485A;
-    /* align-self: flex-end; */
+  color: #fdfdfd;
+  background-color: #ac485a;
 }
 
-input, button, li, ul {
-    border: 0;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 20px;
-    text-align: center;
+input,
+button,
+li,
+ul {
+  border: 0;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
 }
 
 img {
-    width: 200px;
-    margin: 0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: 30px auto;
-    max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  max-width: 320px;
 }
 
 ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style-type: none;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style-type: none;
+  padding: 0;
 }
 
 ul li {
-    background-color: #fffdf8;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
-    flex-grow: 1;
+  background-color: #fffdf8;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
 }
 
-button:hover, ul li:hover {
-    cursor: pointer;
-    color: #fffdf8;
-    background-color: #423838;
+button:hover,
+ul li:hover {
+  cursor: pointer;
+  color: #fffdf8;
+  background-color: #423838;
 }
 
-/* #add-button {
-    position: relative;
-    animation: colorChange 3s linear infinite alternate;
+button:hover {
+  background-color: #e84462;
 }
-
-@keyframes colorChange {
-    0% {
-        color: #1551f4;
-        width: 50%;
-        background-color: #fa022f;
-    }
-
-    25% {
-        color: white;
-        background-color: #9fd239;
-    }
-
-    50% {
-        color: black;
-        width: 75%;
-        background-color: #2971b4;
-    }
-
-    75% { 
-        color: white;
-        background-color: #e851c7;
-    }
-
-    100% {
-        color: #fa022f;
-        width: 100%;
-        background-color: #1551f4;
-        align-self: flex-end;
-    }
-}
-
- #add-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    animation: spinner 3s linear infinite;
-} 
-
-@keyframes spinner {
-    from {
-        background-color: red;
-    bottom: 0;
-    }
-    20% {
-        left: 20%;
-    }
-    40% {
-        left: 40%;
-        background-color: blue;
-    }
-    60% {
-        left: 60%;
-    }
-    80% {
-        left: 80%;
-    }
-
-    to {
-        background-color: blueviolet;
-        top: 0;
-        left: 100%;
-    }
-}
-
-#input-field:is(:focus) {
-    background-color: black;
-} */

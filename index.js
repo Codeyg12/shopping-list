@@ -4,7 +4,7 @@ import {
   ref,
   push,
   onValue,
-  remove
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -22,38 +22,36 @@ const shoppingList = document.querySelector("#shopping-list");
 addButton.addEventListener("click", () => {
   let inputVal = inputField.value;
 
-  push(shoppingListInDB, inputVal)
-
-  // appendToShoppingList(inputVal);
+  push(shoppingListInDB, inputVal);
 
   clearInput();
 
   console.log(`${inputVal} added to database`);
 });
 
-onValue(shoppingListInDB, function(snapshot) {
+onValue(shoppingListInDB, function (snapshot) {
   if (snapshot.exists()) {
-    let shoppingListArray = Object.entries(snapshot.val())
-    clearList()
+    let shoppingListArray = Object.entries(snapshot.val());
+    clearList();
     for (let i = 0; i < shoppingListArray.length; i++) {
-      let shoppingListItem = shoppingListArray[i]
-      appendToShoppingList(shoppingListItem)
-    } 
+      let shoppingListItem = shoppingListArray[i];
+      appendToShoppingList(shoppingListItem);
+    }
   } else {
-    shoppingList.innerHTML = '<h1>Nothing here yet</h1>'
+    shoppingList.innerHTML = "<h1>Nothing here yet</h1>";
   }
-})
+});
 
 function appendToShoppingList(input) {
-  let itemId = input[0]
-  let itemName = input[1]
-  let listItem = document.createElement('li')
-  listItem.textContent = itemName
-  listItem.addEventListener('dblclick', () => {
-    let locationOfItemInDB = ref(database, `shoppingList/${itemId}`)
-    remove(locationOfItemInDB)
-  })
-  shoppingList.appendChild(listItem)
+  let itemId = input[0];
+  let itemName = input[1];
+  let listItem = document.createElement("li");
+  listItem.textContent = itemName;
+  listItem.addEventListener("dblclick", () => {
+    let locationOfItemInDB = ref(database, `shoppingList/${itemId}`);
+    remove(locationOfItemInDB);
+  });
+  shoppingList.appendChild(listItem);
 }
 
 function clearInput() {
@@ -61,5 +59,5 @@ function clearInput() {
 }
 
 function clearList() {
-  shoppingList.innerHTML = ""
+  shoppingList.innerHTML = "";
 }
