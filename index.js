@@ -3,7 +3,8 @@ import {
   getDatabase,
   ref,
   push,
-  onValue
+  onValue,
+  remove
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -45,6 +46,10 @@ function appendToShoppingList(input) {
   let itemName = input[1]
   let listItem = document.createElement('li')
   listItem.textContent = itemName
+  listItem.addEventListener('click', () => {
+    let locationOfItemInDB = ref(database, `shoppingList/${itemId}`)
+    remove(locationOfItemInDB)
+  })
   shoppingList.appendChild(listItem)
 }
 
