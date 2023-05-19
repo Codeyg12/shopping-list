@@ -17,7 +17,7 @@ button {
     /* align-self: flex-end; */
 }
 
-input, button, li {
+input, button, li, p {
     border: 0;
     padding: 15px;
     border-radius: 10px;

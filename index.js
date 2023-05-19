@@ -32,13 +32,16 @@ addButton.addEventListener("click", () => {
 });
 
 onValue(shoppingListInDB, function(snapshot) {
-  if (snapshot.val() == null) return
-  let shoppingListArray = Object.entries(snapshot.val())
-  clearList()
-  for (let i = 0; i < shoppingListArray.length; i++) {
-    let shoppingListItem = shoppingListArray[i]
-    appendToShoppingList(shoppingListItem)
-  } 
+  if (snapshot.exists()) {
+    let shoppingListArray = Object.entries(snapshot.val())
+    clearList()
+    for (let i = 0; i < shoppingListArray.length; i++) {
+      let shoppingListItem = shoppingListArray[i]
+      appendToShoppingList(shoppingListItem)
+    } 
+  } else {
+    shoppingList.innerHTML = '<p>Nothing here yet</p>'
+  }
 })
 
 function appendToShoppingList(input) {
@@ -46,7 +49,7 @@ function appendToShoppingList(input) {
   let itemName = input[1]
   let listItem = document.createElement('li')
   listItem.textContent = itemName
-  listItem.addEventListener('click', () => {
+  listItem.addEventListener('dblclick', () => {
     let locationOfItemInDB = ref(database, `shoppingList/${itemId}`)
     remove(locationOfItemInDB)
   })
