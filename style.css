@@ -17,7 +17,7 @@ button {
     /* align-self: flex-end; */
 }
 
-input, button, li, p {
+input, button, li, ul {
     border: 0;
     padding: 15px;
     border-radius: 10px;
@@ -49,6 +49,12 @@ ul li {
     background-color: #fffdf8;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
     flex-grow: 1;
+}
+
+button:hover, ul li:hover {
+    cursor: pointer;
+    color: #fffdf8;
+    background-color: #423838;
 }
 
 /* #add-button {
