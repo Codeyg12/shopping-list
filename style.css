@@ -15,7 +15,7 @@ input {
 
 button {
   color: #fdfdfd;
-  background-color: #ac485a;
+  background-color: #478ce0;
 }
 
 input,
@@ -32,13 +32,6 @@ ul {
 img {
   width: 200px;
   margin: 0 auto;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  margin: 30px auto;
-  max-width: 320px;
 }
 
 ul {
@@ -63,5 +56,12 @@ ul li:hover {
 }
 
 button:hover {
-  background-color: #e84462;
+  background-color: #2c26d7;
 }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    max-width: 320px;
+  }
