@@ -1,3 +1,5 @@
+
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import {
   getDatabase,
@@ -7,21 +9,41 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
-  databaseURL: "https://realtime-databse-6ecea-default-rtdb.firebaseio.com/",
+  databaseURL: "https://playground-ea176-default-rtdb.firebaseio.com/",
 };
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const shoppingListInDB = ref(database, "shoppingList");
+const books = ref(database, "books");
 
 const inputField = document.querySelector("#input-field");
 const addButton = document.querySelector("#add-button");
 const shoppingList = document.querySelector("#shopping-list");
 
+onValue(books, function(snapshot) {
+  clearList()
+  let booksArray = Object.values(snapshot.val())
+  console.log(snapshot.val());
+  console.log(booksArray);
+  for (let i = 0; i < booksArray.length; i++) {
+    let currentBook = booksArray[i]
+    appendToList(currentBook)
+    console.log(currentBook)
+  }
+})
+
+function clearList() {
+  shoppingList.innerHTML = ""
+}
+
+function appendToList(input) {
+  shoppingList.innerHTML += `<li>${input}</li>`
+}
+
 addButton.addEventListener("click", () => {
   let inputVal = inputField.value;
 
-  push(shoppingListInDB, inputVal)
+  push(books, inputVal)
 
   // appendToShoppingList(inputVal);
 
@@ -30,25 +52,10 @@ addButton.addEventListener("click", () => {
   console.log(`${inputVal} added to database`);
 });
 
-onValue(shoppingListInDB, function(snapshot) {
-  console.log(snapshot.val());
-  if (snapshot.val() == null) return
-  let shoppingListArray = Object.values(snapshot.val())
-  clearList()
-  for (let i = 0; i < shoppingListArray.length; i++) {
-    let shoppingListItem = shoppingListArray[i]
-    appendToShoppingList(shoppingListItem)
-  } 
-})
-
 function appendToShoppingList(input) {
   shoppingList.innerHTML += `<li>${input}</li>`;
 }
 
 function clearInput() {
   inputField.value = "";
-}
-
-function clearList() {
-  shoppingList.innerHTML = ""
 }
