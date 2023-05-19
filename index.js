@@ -31,13 +31,14 @@ addButton.addEventListener("click", () => {
 });
 
 onValue(shoppingListInDB, function(snapshot) {
-  console.log(snapshot.val());
   if (snapshot.val() == null) return
-  let shoppingListArray = Object.values(snapshot.val())
+  let shoppingListArray = Object.entries(snapshot.val())
   clearList()
   for (let i = 0; i < shoppingListArray.length; i++) {
     let shoppingListItem = shoppingListArray[i]
-    appendToShoppingList(shoppingListItem)
+    let itemId = shoppingListItem[0]
+    let itemName = shoppingListItem[1]
+    appendToShoppingList(itemName)
   } 
 })
 
