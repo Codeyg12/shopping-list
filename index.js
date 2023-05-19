@@ -36,14 +36,16 @@ onValue(shoppingListInDB, function(snapshot) {
   clearList()
   for (let i = 0; i < shoppingListArray.length; i++) {
     let shoppingListItem = shoppingListArray[i]
-    let itemId = shoppingListItem[0]
-    let itemName = shoppingListItem[1]
-    appendToShoppingList(itemName)
+    appendToShoppingList(shoppingListItem)
   } 
 })
 
 function appendToShoppingList(input) {
-  shoppingList.innerHTML += `<li>${input}</li>`;
+  let itemId = input[0]
+  let itemName = input[1]
+  let listItem = document.createElement('li')
+  listItem.textContent = itemName
+  shoppingList.appendChild(listItem)
 }
 
 function clearInput() {
