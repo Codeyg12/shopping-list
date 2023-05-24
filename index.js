@@ -22,6 +22,13 @@ const shoppingList = document.querySelector("#shopping-list");
 addButton.addEventListener("click", () => {
   let inputVal = inputField.value;
 
+  inputVal = inputVal.trim();
+
+  if (inputVal == "") {
+    clearInput();
+    return;
+  }
+
   push(shoppingListInDB, inputVal);
 
   clearInput();
